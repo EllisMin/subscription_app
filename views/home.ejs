@@ -1,13 +1,27 @@
+<head>
+    <title>Join our mailing list!</title>
+    <link rel="stylesheet" href="/app.css">
+    <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Turret+Road&display=swap" rel="stylesheet">
+</head>
+
 <body>
-    <h1> Join our Mailing List! </h1>
-    <p>
-        Would you like to receive mailings from special offers and events?<br>
-        We have <strong><%=num%></strong> people joined our list!
-    </p>
-    <form method="POST" action="/register">
-        <input name="email" type="text" class="form" placeholder="Your email">
-        <button>
-            Sign up
-        </button>
-    </form>
+    <div class="flex-container">
+        <div class="container">
+            <h1> Join our Mailing List! </h1>
+            <p>
+                Would you like to receive mailings from special offers and events?
+                <br> We have
+                <strong>
+                    <%=num%>
+                </strong> people joined our list!
+            </p>
+            <form method="POST" action="/register">
+                <input name="email" type="text" class="form" placeholder="Your email">
+                <button>
+                    Sign up
+                </button>
+            </form>
+        </div>
+    </div>
 </body>

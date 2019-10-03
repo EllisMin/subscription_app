@@ -14,6 +14,7 @@ var connection = mysql.createConnection({
 var app = express(); // execute entire express
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static(__dirname + "/public"));
 
 var path = '/';
 app.get(path, function(req, res){
@@ -34,7 +35,7 @@ app.post('/register', function(req, res){
    };
    connection.query('INSERT INTO users SET ?', person, function(err, result) {
         if(err) throw err;
-        res.send("Thank you for joining!");
+        res.redirect('/');
    });
 });
 
