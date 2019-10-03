@@ -1,0 +1,27 @@
+{
+  "name": "subscription_app",
+  "version": "1.0.0",
+  "description": "subscription application which collects emails from users using Node.js packages",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EllisMin/subscription_app.git"
+  },
+  "keywords": [
+    "Express"
+  ],
+  "author": "Dongbin Min",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EllisMin/subscription_app/issues"
+  },
+  "homepage": "https://github.com/EllisMin/subscription_app#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "faker": "^4.1.0",
+    "mysql": "^2.17.1"
+  }
+}
