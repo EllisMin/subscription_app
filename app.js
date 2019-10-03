@@ -1,6 +1,7 @@
 // import the pacakages
 var express = require('express');
 var mysql = require('mysql');
+var bodyParser = require("body-parser");
 
 
 var connection = mysql.createConnection({
@@ -12,6 +13,7 @@ var connection = mysql.createConnection({
 // Configuration
 var app = express(); // execute entire express
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({extended: true}));
 
 var path = '/';
 app.get(path, function(req, res){
@@ -25,6 +27,17 @@ app.get(path, function(req, res){
         res.render('home', {num: num_users});
     });
 });
+
+app.post('/register', function(req, res){
+   var person = {
+        email: req.body.email
+   };
+   connection.query('INSERT INTO users SET ?', person, function(err, result) {
+        if(err) throw err;
+        res.send("Thank you for joining!");
+   });
+});
+
 
 var port = 3000;
 app.listen(port, function(){
