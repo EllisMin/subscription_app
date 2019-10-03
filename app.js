@@ -1,21 +1,17 @@
-
-// Create server
-// const http = require('http');
-// const server = http.createServer((req, res) => {
-//     console.log("request made");
-// });
-// server.listen(3000); // listen incoming reqest
-
-
 // import the pacakages
-var express = require('express')
+var express = require('express');
+var mysql = require('mysql');
 
+var connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'subscription_db'
+});
 
 // Configuration
-app = express(); // execute entire express
+var app = express(); // execute entire express
 
 var path = '/';
-
 app.get(path, function(req, res){
     console.log("request was sent");
     res.send("hello");
