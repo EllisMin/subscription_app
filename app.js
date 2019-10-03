@@ -2,6 +2,7 @@
 var express = require('express');
 var mysql = require('mysql');
 
+
 var connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -10,11 +11,19 @@ var connection = mysql.createConnection({
 
 // Configuration
 var app = express(); // execute entire express
+app.set("view engine", "ejs");
 
 var path = '/';
 app.get(path, function(req, res){
     console.log("request was sent");
-    res.send("hello");
+
+    // Get # users from query
+    var q = 'SELECT COUNT(*) AS total FROM users';
+    connection.query(q, function(error, results, fields) {
+        if (error) throw error;
+        var num_users = results[0].total;
+        res.render('home', {num: num_users});
+    });
 });
 
 var port = 3000;
